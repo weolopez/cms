@@ -1,0 +1,544 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": ""
+        }
+    ],
+    "info": {
+        "description": "Performs CRUD operations on CMS documents stored in MongoDB",
+        "version": "1.0.0",
+        "title": "CMS API",
+        "termsOfService": "https://wireless.att.com/businessconsole",
+        "contact": {
+            "email": "ml5174@att.com",
+            "name": "Mauricio Lopez",
+            "url": "https://wireless.att.com/businessconsole"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "tags": [
+        {
+            "name": "CMS",
+            "description": "Operations about CMS",
+            "externalDocs": {
+                "description": "Find out more about CMS",
+                "url": "https://wireless.att.com/businessconsole"
+            }
+        },
+        {
+            "name": "MOCK",
+            "description": "Operations about MOCK",
+            "externalDocs": {
+                "description": "Mocked interfaces",
+                "url": "https://wireless.att.com/businessconsole"
+            }
+        }
+    ],
+    "paths": {
+        "/hello": {
+            "get": {
+                "summary": "Test REST service",
+                "description": "returns world",
+                "parameters": [],
+                "operationId": "",
+                "responses": {
+                    "default": {
+                        "description": "Default response"
+                    }
+                }
+            }
+        },
+        "/cms/v1/{CamelMongoDbCollection}": {
+            "get": {
+                "summary": "CRUD Operation READ",
+                "description": "CMS API to get Document from Collection in MongoDB",
+                "operationId": "",
+                "parameters": [
+                    {
+                        "name": "CamelMongoDbCollection",
+                        "in": "path",
+                        "description": "ID of Collection in Mongo",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "document"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [],
+                "tags": [
+                    "CMS"
+                ]
+            }
+        },
+        "/mock/v1/{CamelMongoDbCollection}/{documentId}": {
+            "get": {
+                "summary": "MOCK Operation GET",
+                "description": "MOCK API to get a Document from Collection in MongoDB",
+                "operationId": "",
+                "parameters": [
+                    {
+                        "name": "CamelMongoDbCollection",
+                        "in": "path",
+                        "description": "ID of Collection in Mongo",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "document"
+                        }
+                    },
+                    {
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [],
+                "tags": [
+                    "MOCK"
+                ]
+            },
+            "put": {
+                "summary": "MOCK Operation PUT",
+                "description": "MOCK API to get a Document from Collection in MongoDB",
+                "operationId": "",
+                "parameters": [
+                    {
+                        "name": "CamelMongoDbCollection",
+                        "in": "path",
+                        "description": "ID of Collection in Mongo",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "document"
+                        }
+                    },
+                    {
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [],
+                "tags": [
+                    "MOCK"
+                ]
+            },
+            "post": {
+                "summary": "MOCK Operation post",
+                "description": "MOCK API to get a Document from Collection in MongoDB",
+                "operationId": "",
+                "parameters": [
+                    {
+                        "name": "CamelMongoDbCollection",
+                        "in": "path",
+                        "description": "ID of Collection in Mongo",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "document"
+                        }
+                    },
+                    {
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [],
+                "tags": [
+                    "MOCK"
+                ]
+            },
+            "delete": {
+                "summary": "MOCK Operation delete",
+                "description": "MOCK API to get a Document from Collection in MongoDB",
+                "operationId": "",
+                "parameters": [
+                    {
+                        "name": "CamelMongoDbCollection",
+                        "in": "path",
+                        "description": "ID of Collection in Mongo",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "document"
+                        }
+                    },
+                    {
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [],
+                "tags": [
+                    "MOCK"
+                ]
+            }
+        },
+        "/cms/v1/{CamelMongoDbCollection}/{documentId}": {
+            "get": {
+                "summary": "CRUD Operation READ",
+                "description": "CMS API to get Document from Collection in MongoDB",
+                "operationId": "",
+                "parameters": [
+                    {
+                        "name": "CamelMongoDbCollection",
+                        "in": "path",
+                        "description": "ID of Collection in Mongo",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "document"
+                        }
+                    },
+                    {
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [],
+                "tags": [
+                    "CMS"
+                ]
+            },
+            "post": {
+                "summary": "CRUD Operation CREATE",
+                "description": "CMS API to CREATE a Document from Collection in MongoDB",
+                "operationId": "",
+                "parameters": [
+                    {
+                        "name": "CamelMongoDbCollection",
+                        "in": "path",
+                        "description": "ID of Collection in Mongo",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "document"
+                        }
+                    },
+                    {
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Document"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [],
+                "tags": [
+                    "CMS"
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Document"
+                }
+            },
+            "put": {
+                "summary": "CRUD Operation UPDATE",
+                "description": "CMS API to UPDATE a Document from Collection in MongoDB",
+                "operationId": "",
+                "parameters": [
+                    {
+                        "name": "CamelMongoDbCollection",
+                        "in": "path",
+                        "description": "ID of Collection in Mongo",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "document"
+                        }
+                    },
+                    {
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "home"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Document"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [],
+                "tags": [
+                    "CMS"
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Document"
+                }
+            },
+            "delete": {
+                "summary": "CRUD Operation DELETE",
+                "description": "CMS API to delete a Document from Collection in MongoDB",
+                "operationId": "",
+                "parameters": [
+                    {
+                        "name": "CamelMongoDbCollection",
+                        "in": "path",
+                        "description": "ID of Collection in Mongo",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "document"
+                        }
+                    },
+                    {
+                        "name": "documentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [],
+                "tags": [
+                    "CMS"
+                ]
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "See External Documents",
+        "url": "https://mermade.github.io/openapi-gui/#"
+    },
+    "components": {
+        "schemas": {
+            "Document": {
+                "definitions": {},
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "$id": "http://example.com/root.json",
+                "type": "object",
+                "title": "The Root Schema",
+                "required": [
+                    "_id",
+                    "body",
+                    "headers"
+                ],
+                "properties": {
+                    "_id": {
+                        "$id": "#/properties/_id",
+                        "type": "string",
+                        "title": "The _id Schema",
+                        "default": "",
+                        "examples": [
+                            "home"
+                        ],
+                        "pattern": "^(.*)$"
+                    },
+                    "body": {
+                        "$id": "#/properties/body",
+                        "type": "string",
+                        "title": "The Body Schema",
+                        "default": "",
+                        "examples": [
+                            "html content"
+                        ],
+                        "pattern": "^(.*)$"
+                    },
+                    "headers": {
+                        "$id": "#/properties/headers",
+                        "type": "array",
+                        "title": "The Headers Schema",
+                        "items": {
+                            "$id": "#/properties/headers/items",
+                            "type": "object",
+                            "title": "The Items Schema",
+                            "required": [
+                                "key"
+                            ],
+                            "properties": {
+                                "key": {
+                                    "$id": "#/properties/headers/items/properties/key",
+                                    "type": "string",
+                                    "title": "The Key Schema",
+                                    "default": "test",
+                                    "examples": [
+                                        "value"
+                                    ],
+                                    "pattern": "^(.*)$"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "requestBodies": {
+            "Document": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Document"
+                        }
+                    }
+                },
+                "description": "CMS Document",
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "name": "api_key",
+                "in": "header"
+            },
+            "GlobalLogin": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "http://globallogin.att.com/oauth/dialog",
+                        "scopes": {
+                            "write:documents": "modify you documents",
+                            "read:documents": "read your documents"
+                        }
+                    }
+                }
+            }
+        },
+        "links": {},
+        "callbacks": {}
+    },
+    "security": []
+}
