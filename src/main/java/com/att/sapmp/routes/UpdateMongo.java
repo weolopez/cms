@@ -36,6 +36,8 @@ public class UpdateMongo extends RouteBuilder {
                 Document d = exchange.getIn().getBody(Document.class);
                 String body = d.toString();
 
+                System.out.println("\n\n\n"+body);
+
                 HashMap<String,Object> bodyObject =
                 new ObjectMapper().readValue(body, HashMap.class);
         

@@ -1,0 +1,30 @@
+/* Add application styles & imports to this file! */
+@import "animation.css"; /* Using a string */
+@import "tags.css";
+@import "layout.css";
+
+header {
+  animation: 1s ease-out 0s 1 bounceIn;
+  color: yellow;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#sun {
+  animation: 1s ease-out 0s 1 spinIn;
+  border-radius: 50%;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+body { margin: 0; }
+editor { visibility: hidden; }
+#link1 { animation: 1s ease-out 0s 1 slideInFromLeft; }
+#link2 { animation: 1s ease-out 0s 1 slideInFromRight; }

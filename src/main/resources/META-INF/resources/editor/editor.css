@@ -1,0 +1,18 @@
+editor {
+  background: darkslategrey;
+  display: block;
+  height: 50px;
+  position: absolute;
+  width: 100%;
+}
+h1 { margin: 0;}
+#wikiName {
+    padding: 5px;
+}
+#save {
+  border: 1px groove;
+  padding: 5px;
+  position: absolute;
+  right: 5px;
+  top: 0;   
+}

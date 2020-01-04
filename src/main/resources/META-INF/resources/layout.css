@@ -1,0 +1,84 @@
+#middle {
+    display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+#left {
+    min-width: 200px;
+margin: 10px;
+padding: 10px;
+}
+
+#main {
+    min-width: 370px;
+}
+
+#navigation {
+    animation: 1s ease-out 0s 1 slideInFromTop;
+height: 70px;
+width: 100%;
+overflow-x: scroll;
+z-index: 2;
+}
+
+ul {
+flex-wrap: nowrap;
+}
+
+#header {
+    grid-area: header;
+z-index: 1;
+}
+
+#footer {
+    color: silver;
+}
+#footer a {
+color: grey;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+    background: black;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+flex-direction: column;
+}
+
+.box {
+    border-radius: 5px;
+    padding: 0px;
+}
+
+#navigation,
+#header,
+#footer {
+}
+
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.topright {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.bottomright {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

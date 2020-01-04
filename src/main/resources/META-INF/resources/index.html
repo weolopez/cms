@@ -1,0 +1,19 @@
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+	<cms oncontextmenu="return false;" contenteditable></cms>
+	<editor></editor>
+</body>
+
+<script src="cms/cms.js"></script>
+<script src="editor/editor.js"></script>
+<script>
+	var wikiName=window.location.href.split('#')[1];
+	var doc = getDocument(wikiName);
+</script>
+
+</html>
