@@ -1,7 +1,6 @@
 
 package com.att.sapmp.routes;
 
-import com.att.sapmp.model.Document;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 

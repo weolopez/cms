@@ -1,0 +1,16 @@
+:root {
+  --att-dark-blue: hsl(204.9, 94.4%, 35.1%); 
+  --f-red: hsl(0, 66%, 49%);
+  --fb-gray: hsl(0, 0%, 95%);
+  --att-dark-gray: hsl(0, 0%, 35%);
+  --f-green: hsl(150, 100%, 24%); 
+  --att-orange: #ea7400; 
+  --grey: #708090;
+
+  --primary: var(--att-dark-blue) ;
+  --secondary: var(--att-orange) ;
+  --default: var(--fb-gray) ;
+  --inverse: var(--att-dark-gray) ;
+  --danger: var(--f-red) ;
+  --success: var(--f-green) ;
+}

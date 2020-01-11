@@ -1,4 +1,3 @@
-
 package com.att.sapmp.routes;
 
 import org.apache.camel.builder.RouteBuilder;
@@ -9,7 +8,6 @@ public class CallMongo extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        
         from("direct:callMongo")
         .setHeader("CamelMongoDbCollection", simple("${headers.CamelMongoDbCollection}"))
         .setHeader("CamelMongoDbDatabase", simple("local"))

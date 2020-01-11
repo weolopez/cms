@@ -1,19 +1,16 @@
 <html>
-
-<head>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-
 <body>
-	<cms oncontextmenu="return false;" contenteditable></cms>
-	<editor></editor>
+	<cms oncontextmenu="return false;"></cms>
+	<contextMenu></contextMenu>
 </body>
 
 <script src="cms/cms.js"></script>
-<script src="editor/editor.js"></script>
+<script src="../contextMenu/contextMenu.js"></script>
 <script>
-	var wikiName=window.location.href.split('#')[1];
-	var doc = getDocument(wikiName);
+	const cms = new CMSComponent();	
+	const menu = new ContextMenuComponent(document.querySelector("#cms"));
+	menu.add('edit', e=>document.location='/editor#'+CMSComponent.wikiName);
 </script>
+
 
 </html>

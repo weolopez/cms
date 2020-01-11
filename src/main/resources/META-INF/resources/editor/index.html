@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+		
+<html>
+
+<body>
+	<cms oncontextmenu="return false;" contenteditable onblur="CMSComponent.setDocument('body', document.querySelector('#cms').innerHTML)"></cms>
+	<editor></editor>
+	<contextMenu></contextMenu>
+	<statusBar></statusBar>
+</body>
+
+<script src="../cms/cms.js"></script>
+<script src="../contextMenu/contextMenu.js"></script>
+<script src="../editor/editor.js"></script>
+<script src="../statusBar/statusBar.js"></script>
+<script>
+    const statusBar = new StatusBarComponent();
+	const cms = new CMSComponent(true);
+	const editor = new EditorComponent(statusBar);
+	const menu = new ContextMenuComponent(document.querySelector("#cms"));
+	menu.add('innerHTML', editor.innerHTML);
+	menu.add('styles', editor.styles);
+	menu.add('data', editor.data);
+	menu.add('exit', e=>document.location='/#'+CMSComponent.wikiName);
+</script>
+
+
+</html>

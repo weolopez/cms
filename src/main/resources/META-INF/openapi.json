@@ -508,7 +508,7 @@
         "requestBodies": {
             "Document": {
                 "content": {
-                    "application/text": {
+                    "application/json": {
                         "schema": {
                             "$ref": "#/components/schemas/Document"
                         }

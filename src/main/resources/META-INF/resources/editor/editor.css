@@ -1,18 +1,30 @@
 editor {
   background: darkslategrey;
   display: block;
-  height: 50px;
+  max-height: 50%;
   position: absolute;
+  top: 0;
+  visibility: hidden;
   width: 100%;
 }
-h1 { margin: 0;}
-#wikiName {
-    padding: 5px;
+h1 {
+  margin: 0;
+}
+#editor {
+  max-height: 50%;
+  overflow-y: scroll;
+  padding: 2%;
+  width: 95%;
 }
 #save {
   border: 1px groove;
   padding: 5px;
   position: absolute;
   right: 5px;
-  top: 0;   
+  top: 0;
+}
+
+cms *:hover { 
+  border: 2px solid var(--grey);
+  
 }
