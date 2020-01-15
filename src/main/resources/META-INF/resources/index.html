@@ -1,16 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	
 <html>
-<body>
-	<cms oncontextmenu="return false;"></cms>
-	<contextMenu></contextMenu>
-</body>
-
-<script src="cms/cms.js"></script>
-<script src="../contextMenu/contextMenu.js"></script>
-<script>
-	const cms = new CMSComponent();	
-	const menu = new ContextMenuComponent(document.querySelector("#cms"));
-	menu.add('edit', e=>document.location='/editor#'+CMSComponent.wikiName);
-</script>
-
-
-</html>
+	<body>
+		<cms oncontextmenu="return false;"></cms>
+		<contextMenu></contextMenu>
+	</body>
+	
+	<script src="cms/cms.js"></script>
+	<script src="../contextMenu/contextMenu.js"></script>
+	<script>
+		const cms = new CMSComponent();	
+		const menu = new ContextMenuComponent(document.querySelector("#cms"));
+		menu.add('edit', e=>document.location='/editor#'+document.title);
+	</script>
+	
+	
+	</html>

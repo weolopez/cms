@@ -1,12 +1,13 @@
 document.getElementsByTagName("editor")[0].innerHTML = `
     <link rel="stylesheet" type="text/css" href="/editor/editor.css">
-    <pre id="editor" contenteditable onblur="EditorComponent.save();">
+    <pre id="editor" contenteditable onblur="document.dispatchEvent(new Event('saveEditor'))">
     </pre>
     `;
 
 class EditorComponent {
-  static cms;
-  constructor(statusBar) {
+  cms;
+  constructor(cms, statusBar) {
+    this.cms = cms;
     document.querySelector("#cms").onmouseover = function(e) {
       statusBar.setStatus(e.target.localName);
     }
@@ -14,44 +15,45 @@ class EditorComponent {
       if (evt.ctrlKey && evt.which == 69) {
         EditorComponent.toggleEditor();
       }
-      if (evt.ctrlKey && evt.which == 83) {
-        //setDocument();
-      }
+      // if (evt.ctrlKey && evt.which == 83) {
+      // }
       if (evt.keyCode === 27) EditorComponent.toggleEditor();
     };
+    document.addEventListener('saveEditor', e => {
+      EditorComponent.save(e);
+    })
   }
 
   innerHTML(e) {
     document.querySelector("#editor").innerText = e.innerHTML;
     EditorComponent.save = function(t) {
       e.innerHTML = document.querySelector("#editor").innerText;
-      CMSComponent.setDocument( "body", document.querySelector("#cms").innerHTML);
       EditorComponent.toggleEditor();
     };
     EditorComponent.toggleEditor();
   }
 
-  styles(e) {
-    document.querySelector("#editor").innerText = document.querySelector("#styles") ? document.querySelector("#styles").innerText : "";
+  styles() {
+    document.querySelector("#editor").innerText = (window.doc.styles) ? window.doc.styles : '';
     EditorComponent.save = function(t) {
       document.querySelector("#styles").innerHTML = document.querySelector( "#editor").innerText;
-      CMSComponent.setDocument( "styles", document.querySelector("#editor").innerText);
+      window.doc.styles = document.querySelector( "#editor").innerText;
       EditorComponent.toggleEditor();
     };
     EditorComponent.toggleEditor();
   }
 
-  data(e) {
-    document.querySelector("#editor").innerText = (CMSComponent.doc.data) ? JSON.stringify(CMSComponent.doc.data) : '';
+  data() {
+    document.querySelector("#editor").innerText = (window.doc.data) ? JSON.stringify(window.doc.data) : '';
     EditorComponent.save = function(t) {
-      CMSComponent.doc.data = JSON.parse(document.querySelector( "#editor").innerText);
-      CMSComponent.save();
+      window.doc[type] = JSON.parse(document.querySelector( "#editor").innerText);
       EditorComponent.toggleEditor();
     };
     EditorComponent.toggleEditor();
   }
 
   static toggleEditor() {
+    document.dispatchEvent(new Event('save'));
     document.querySelector("editor").style.visibility =
       document.querySelector("editor").style.visibility !== "visible"
         ? "visible"
