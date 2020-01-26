@@ -22,3 +22,5 @@ class StringLiteral {
     return str;
   }
 }
+const stringLiteral = new StringLiteral();
+template.register(stringLiteral);

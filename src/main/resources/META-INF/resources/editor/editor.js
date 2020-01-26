@@ -24,6 +24,14 @@ class EditorComponent {
     })
   }
 
+  page(e) {
+    document.querySelector("#editor").innerText = document.querySelector("#cms").innerHTML;
+    EditorComponent.save = function(t) {
+      document.querySelector("#cms").innerHTML = document.querySelector("#editor").innerText;
+      EditorComponent.toggleEditor();
+    };
+    EditorComponent.toggleEditor();
+  }
   innerHTML(e) {
     document.querySelector("#editor").innerText = e.innerHTML;
     EditorComponent.save = function(t) {
@@ -46,7 +54,7 @@ class EditorComponent {
   data() {
     document.querySelector("#editor").innerText = (window.doc.data) ? JSON.stringify(window.doc.data) : '';
     EditorComponent.save = function(t) {
-      window.doc[type] = JSON.parse(document.querySelector( "#editor").innerText);
+      window.doc.data = JSON.parse(document.querySelector( "#editor").innerText);
       EditorComponent.toggleEditor();
     };
     EditorComponent.toggleEditor();

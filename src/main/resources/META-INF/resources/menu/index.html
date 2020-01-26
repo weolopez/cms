@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<body>
+	<cms contenteditable oncontextmenu="return false;"></cms>
+	<menu id="contextMenu">
+		componentInstances.contextMenu.add('alert', `alert('SUCCESS')`)
+	</menu>
+
+	<button id="databaseMenuButton">Menu</button>
+	<script>
+		document.addEventListener(
+			"cmsLoaded",
+			e =>
+				(document.querySelector("#databaseMenuButton").innerText =
+					e.detail.cms.database.id)
+		);
+	</script>
+	<menu id="databaseMenu" data-triggerElementId="databaseMenuButton">
+		cms.databases.forEach(d => componentInstances.databaseMenu.add(d.id, `cms.setDB(false,
+		'${d.id}')`))
+	</menu>
+</body>
+<script src="/cms/cms.js"></script>
+<script src="/menu/menu.js"></script>
+
+</html>

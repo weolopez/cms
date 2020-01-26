@@ -11,6 +11,7 @@ class ContextMenuComponent {
   constructor(element) {
     window.addEventListener("click", e => {
       this.hide();
+      return true;
     });
 
     element = (element) ? element : window;
@@ -25,7 +26,7 @@ class ContextMenuComponent {
   hide() {
     if (!ContextMenuComponent.target) return false;
     ContextMenuComponent.menu.removeChild(
-      document.querySelector("#menu-options")
+      document.querySelector(".menu-options")
     );
     ContextMenuComponent.menu.style.display = "none";
     ContextMenuComponent.target = undefined;
@@ -33,7 +34,7 @@ class ContextMenuComponent {
   }
   show(e) {
     const list = document.createElement("ul");
-    list.id = "menu-options";
+    list.className = "menu-options";
 
     this.actions.forEach(a => this.append(list, a));
     ContextMenuComponent.menu.appendChild(list);
@@ -53,3 +54,4 @@ class ContextMenuComponent {
     this.actions.push({ label: label, func: func });
   }
 }
+var menu = new ContextMenuComponent();

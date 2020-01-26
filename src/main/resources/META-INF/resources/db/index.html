@@ -3,6 +3,9 @@
 <html>
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firebase datastore test page</title>
 	<script src="/cms/cms.js"></script>
 	<script src="/statusBar/statusBar.js"></script>
 	<script src="/contextMenu/menu.js"></script>
@@ -16,12 +19,14 @@
 	<button id="databaseMenuButton">Menu</button>
 	<script>
 		document.addEventListener("cmsLoaded", e => 
-		document.querySelector('#databaseMenuButton').innerText = e.detail.cms.database.id);
+			document.querySelector('#databaseMenuButton').innerText = e.detail.cms.database.id);
 	</script>
 	<menu id="databaseMenu" data-triggerElementId="databaseMenuButton">
 		cms.databases.forEach(d => databaseMenu.add(d.id, `cms.setDB(false, '${d.id}')`))
 	</menu>
 	<statusBar></statusBar>
+  <h1 id="loggedin" style="visibility: hidden;">LOGGED IN</h1>
+  <h1 id="login" onclick="firebaseDB.signIn()" style="visibility: hidden;">LOG IN</h1>
 </body>
 
 </html>

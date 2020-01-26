@@ -1,4 +1,5 @@
-class FirebaseCMS {
+class FirebaseDB {
+
   firebaseConfig = {
     apiKey: "AIzaSyAF7PNkbLWdnc0POi-ZKUziKkm32ovU394",
     authDomain: "cabal-6d74d.firebaseapp.com",
@@ -13,12 +14,22 @@ class FirebaseCMS {
   user;
   db;
   constructor() {
+
     firebase.initializeApp(this.firebaseConfig);
     this.db = firebase.firestore();
     window.log = function(message) {
       this.db.collection('log').add(message).then();
     }
+
+    document.addEventListener('save', cms => {
+      window.doc.body = document.querySelector("#cms").innerHTML;
+      this.setDocument();
+    });
+    document.addEventListener('signIn', cms => {
+      this.signIn();
+    });
   }
+
   signIn() {
     firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
@@ -64,12 +75,18 @@ class FirebaseCMS {
       return this.user;
   }
 
-  async getDocument(name) {
+  async getDocuments() {
+    const snapshot = await firebase.firestore().collection('cms').get();
+    return snapshot.docs.map(doc => doc.data());
+  }
+
+  async getDocument() {
     return this.db.collection('cms').doc(document.title).get().then(d=>d.data());
   }
 
-  async setDocument(name, data) {
-    return this.db.collection('cms').doc(name).set(data).then(d=>d);
+  async setDocument() {
+    return this.db.collection('cms').doc(document.title).set(window.doc).then(d=>d);
   }
+
 
 }

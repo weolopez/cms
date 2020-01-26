@@ -29,3 +29,5 @@ class Loop {
     loop.remove();
   }
 }
+
+template.register(new Loop())

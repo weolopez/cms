@@ -8,14 +8,8 @@
 </script>
 
 <script src="../template/template.js"></script>
-<script src="../template/stringLiteral.js"></script>
-<script src="../template/loop.js"></script>
 <script>
-	const stringLiteral = new StringLiteral();
-	const loop = new Loop(stringLiteral);
-	const template = new TemplateComponent();
-	template.register(stringLiteral);
-	template.register(loop);
+	const template = new TemplateComponent(['stringLiteral','loop']);
 	const cms = new CMSComponent();
 </script>
 

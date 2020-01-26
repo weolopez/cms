@@ -19,6 +19,8 @@
 	const cms = new CMSComponent(true);
 	const editor = new EditorComponent(cms, statusBar);
 	const menu = new ContextMenuComponent(document.querySelector("#cms"));
+
+	menu.add('page', editor.page);
 	menu.add('innerHTML', editor.innerHTML);
 	menu.add('styles', editor.styles);
 	menu.add('data', editor.data);

@@ -1,19 +1,60 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html>
-	<body>
-		<cms oncontextmenu="return false;"></cms>
-		<contextMenu></contextMenu>
-	</body>
-	
-	<script src="cms/cms.js"></script>
-	<script src="../contextMenu/contextMenu.js"></script>
-	<script>
-		const cms = new CMSComponent();	
-		const menu = new ContextMenuComponent(document.querySelector("#cms"));
-		menu.add('edit', e=>document.location='/editor#'+document.title);
-	</script>
-	
-	
-	</html>
+
+<body>
+	<cms oncontextmenu="return false;" contenteditable="" onblur="document.dispatchEvent(new Event('save'))"></cms>
+	<contextMenu></contextMenu>
+	<editor></editor>
+	<statusBar></statusBar>
+</body>
+
+<script src="cms/cms.js"></script>
+<script src="../contextMenu/contextMenu.js"></script>
+<script src="../statusBar/statusBar.js"></script>
+<script src="../editor/editor.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+<script src="../firebase/firebase.js"></script>
+
+<script src="../template/template.js"></script>
+<script>
+
+	const template = new TemplateComponent(['stringLiteral','loop']);
+	var db = localStorage.getItem('db');
+	const menu = new ContextMenuComponent(document.querySelector("cms"));
+	const statusBar = new StatusBarComponent();
+	if (db === 'firebaseDB') {
+		menu.add('MongoLocal', e => {
+			localStorage.setItem('db', 'MongoLocal');
+			location.reload()
+		});
+		const firebaseDB = new FirebaseDB();
+		firebaseDB.checkIfSignedIn().then(u => {
+			var id = (u) ? 'loggedin' : 'login';
+			document.getElementById(id).style.visibility = 'visible';
+		})
+		const cms = new CMSComponent(false, firebaseDB);
+		statusBar.setStatus('Firebase');
+	} else {
+		const cms = new CMSComponent();
+		menu.add('Firebase', e => {
+			localStorage.setItem('db', 'firebaseDB')
+			location.reload()
+		});
+		statusBar.setStatus('MongoLocal');
+	}
+	// menu.add('edit', e => document.location = '/editor#' + document.title);
+	const editor = new EditorComponent(cms, statusBar);
+	menu.add('page', editor.page);
+	menu.add('innerHTML', editor.innerHTML);
+	menu.add('styles', editor.styles);
+	menu.add('data', editor.data);
+</script>
+
+
+
+
+</html>
