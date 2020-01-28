@@ -10,7 +10,7 @@ public class CallMongo extends RouteBuilder {
     public void configure() throws Exception {
         from("direct:callMongo")
         .setHeader("CamelMongoDbCollection", simple("${headers.CamelMongoDbCollection}"))
-        .setHeader("CamelMongoDbDatabase", simple("local"))
+        .setHeader("CamelMongoDbDatabase", simple("sapmpdbdev"))
         .to("mongodb:mongoBean?database=ignore&collection=ignore&dynamicity=true");
     }
 }

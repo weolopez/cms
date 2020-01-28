@@ -1,5 +1,5 @@
 
-  class MenuComponent {
+  export class MenuComponent {
     id = "menu";
     template = `
   <link rel="stylesheet" type="text/css" href="/menu/menu.css">
@@ -80,4 +80,4 @@
       this.actions.push({ label: label, func: func });
     }
   }
-watch('menu', MenuComponent);
+// watch('menu', MenuComponent);
